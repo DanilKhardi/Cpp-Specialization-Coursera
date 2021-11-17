@@ -22,7 +22,7 @@ struct Query {
 };
 
 istream& operator >> (istream& is, Query& q) {
-  // Реализуйте эту функцию
+  // Р РµР°Р»РёР·СѓР№С‚Рµ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ
 	string operation_type;
 	is >> operation_type;
 	if (operation_type == "NEW_BUS") {
@@ -54,13 +54,13 @@ istream& operator >> (istream& is, Query& q) {
 }
 
 struct BusesForStopResponse {
-  // Наполните полями эту структуру
+  // РќР°РїРѕР»РЅРёС‚Рµ РїРѕР»СЏРјРё СЌС‚Сѓ СЃС‚СЂСѓРєС‚СѓСЂСѓ
 	string stop;
 	vector<string> buses_list;
 };
 
 ostream& operator << (ostream& os, const BusesForStopResponse& r) {
-  // Реализуйте эту функцию
+  // Р РµР°Р»РёР·СѓР№С‚Рµ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ
 	if (r.buses_list.size() == 0) {
 		os << "No stop";
 	} else {
@@ -77,13 +77,13 @@ ostream& operator << (ostream& os, const BusesForStopResponse& r) {
 }
 
 struct StopsForBusResponse {
-  // Наполните полями эту структуру
+  // РќР°РїРѕР»РЅРёС‚Рµ РїРѕР»СЏРјРё СЌС‚Сѓ СЃС‚СЂСѓРєС‚СѓСЂСѓ
 	string bus;
 	vector<pair<string, vector<string>>> stops_and_buses;
 };
 
 ostream& operator << (ostream& os, const StopsForBusResponse& r) {
-  // Реализуйте эту функцию
+  // Р РµР°Р»РёР·СѓР№С‚Рµ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ
 	if (r.stops_and_buses.size() == 0) {
 		os << "No bus";
 	} else {
@@ -111,12 +111,12 @@ ostream& operator << (ostream& os, const StopsForBusResponse& r) {
 }
 
 struct AllBusesResponse {
-  // Наполните полями эту структуру
+  // РќР°РїРѕР»РЅРёС‚Рµ РїРѕР»СЏРјРё СЌС‚Сѓ СЃС‚СЂСѓРєС‚СѓСЂСѓ
 	map<string, vector<string>> buses_info;
 };
 
 ostream& operator << (ostream& os, const AllBusesResponse& r) {
-  // Реализуйте эту функцию
+  // Р РµР°Р»РёР·СѓР№С‚Рµ СЌС‚Сѓ С„СѓРЅРєС†РёСЋ
 	if (r.buses_info.size() == 0) {
 		os << "No buses";
 	} else {
@@ -139,7 +139,7 @@ ostream& operator << (ostream& os, const AllBusesResponse& r) {
 class BusManager {
 public:
   void AddBus(const string& bus, const vector<string>& stops) {
-    // Реализуйте этот метод
+    // Р РµР°Р»РёР·СѓР№С‚Рµ СЌС‚РѕС‚ РјРµС‚РѕРґ
 	  buses_to_stops_[bus] = stops;
 	  for (const auto& stop : stops) {
 		  stops_to_buses_[stop].push_back(bus);
@@ -147,7 +147,7 @@ public:
   }
 
   BusesForStopResponse GetBusesForStop(const string& stop) const {
-    // Реализуйте этот метод
+    // Р РµР°Р»РёР·СѓР№С‚Рµ СЌС‚РѕС‚ РјРµС‚РѕРґ
 	  BusesForStopResponse response;
 	  response.stop = stop;
 	  if (stops_to_buses_.count(stop) != 0) {
@@ -159,7 +159,7 @@ public:
   }
 
   StopsForBusResponse GetStopsForBus(const string& bus) const {
-    // Реализуйте этот метод
+    // Р РµР°Р»РёР·СѓР№С‚Рµ СЌС‚РѕС‚ РјРµС‚РѕРґ
 	  StopsForBusResponse response;
 	  response.bus = bus;
 	  if (buses_to_stops_.count(bus) != 0) {
@@ -171,7 +171,7 @@ public:
   }
 
   AllBusesResponse GetAllBuses() const {
-    // Реализуйте этот метод
+    // Р РµР°Р»РёР·СѓР№С‚Рµ СЌС‚РѕС‚ РјРµС‚РѕРґ
 	  AllBusesResponse response;
 	  for (const auto& [bus, stops] : buses_to_stops_) {
 		  response.buses_info[bus] = stops;
@@ -182,7 +182,7 @@ private:
   map<string, vector<string>> buses_to_stops_, stops_to_buses_;
 };
 
-// Не меняя тела функции main, реализуйте функции и классы выше
+// РќРµ РјРµРЅСЏСЏ С‚РµР»Р° С„СѓРЅРєС†РёРё main, СЂРµР°Р»РёР·СѓР№С‚Рµ С„СѓРЅРєС†РёРё Рё РєР»Р°СЃСЃС‹ РІС‹С€Рµ
 
 int main() {
   int query_count;
